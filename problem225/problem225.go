@@ -1,4 +1,4 @@
-package problem255
+package problem225
 
 type MyStack struct {
 	data []int
