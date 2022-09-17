@@ -1,3 +1,3 @@
-module github.com/slonnik/leetcode-go/util
+module github.com/slonnik/leetcode-go
 
 go 1.18
