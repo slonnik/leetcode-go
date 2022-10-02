@@ -28,3 +28,7 @@ func internalNode(rootNode *TreeNode, rootIndex int, data []int) {
 	internalNode(rootNode.Left, leftIndex, data)
 	internalNode(rootNode.Right, rightIndex, data)
 }
+
+func (node *TreeNode) ToSlice() []int {
+	return []int{}
+}
