@@ -45,7 +45,7 @@ func TestTreeNode_ToSlice(t *testing.T) {
 		Left:  &TreeNode{Val: 1, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 5}},
 		Right: &TreeNode{Val: 3, Left: &TreeNode{Val: 6}, Right: &TreeNode{Val: 7}}}
 	slice := node.ToSlice()
-	if !reflect.DeepEqual(slice, []int{2, 3, 1}) {
+	if !reflect.DeepEqual(slice, []int{2, 1, 3, 4, 5, 6, 7}) {
 		t.Fatalf("Failed to make slice: %v", slice)
 	}
 }

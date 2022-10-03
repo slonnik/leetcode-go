@@ -30,15 +30,27 @@ func internalNodeFromSlice(rootNode *TreeNode, rootIndex int, data []int) {
 }
 
 func (node *TreeNode) ToSlice() []int {
-	data := []int{}
-	node.internalToSlice(data)
+	count := node.countNodes()
+	data := make([]int, count)
+	node.internalToSlice(1, data)
 	return data
 }
 
-func (node *TreeNode) internalToSlice(data []int) {
+func (node *TreeNode) countNodes() int {
+	if node == nil {
+		return 0
+	}
+	count := 1
+	count += node.Left.countNodes()
+	count += node.Right.countNodes()
+	return count
+}
+
+func (node *TreeNode) internalToSlice(rootIndex int, data []int) {
 	if node == nil {
 		return
 	}
-	node.Left.internalToSlice(data)
-	node.Right.internalToSlice(data)
+	data[rootIndex-1] = node.Val
+	node.Left.internalToSlice(2*rootIndex, data)
+	node.Right.internalToSlice(2*rootIndex+1, data)
 }
